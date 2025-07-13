@@ -3,15 +3,6 @@ import * as fsSync from 'fs'
 import * as fsAsync from 'fs/promises'
 import * as path from 'path'
 
-function readFileSafe(filePath: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fsSync.readFile(filePath, "utf-8", (err, data) => {
-      if (err) reject(err);
-      else resolve(data);
-    });
-  });
-}
-
 class TypeDocFormatter {
   format(outputDir: string) {
     this.renameREADME(outputDir);
@@ -97,7 +88,6 @@ class TypeDocFormatter {
 export async function load(app: Application) {
 
 app.renderer.on(RendererEvent.END, async (event) => {
-  const filePath = path.join(event.outputDirectory, "Class.MaxHeap.md");
 
   const formatter = new TypeDocFormatter()
   formatter.format(event.outputDirectory);
