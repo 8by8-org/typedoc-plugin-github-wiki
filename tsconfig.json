@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "outDir": "./dist",
-    "lib": ["es2023"]
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "outDir": "./dist"
   },
   "files": ["./src/index.ts"]
 }
